@@ -196,8 +196,9 @@ body.edit-mode .edit-banner { display: block; }
 
 
 
+
 /* MOBILE RESPONSIVE */
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
   .page-header { padding: 28px 20px 24px; }
   .page-header h1 { font-size: 26px; letter-spacing: 3px; }
   .content-area { padding: 20px 16px 60px; }
@@ -219,6 +220,11 @@ body.edit-mode .edit-banner { display: block; }
   .two-col .card { flex: none; width: 100%; }
   .three-col { grid-template-columns: 1fr !important; }
   .chart-canvas-wrap { min-height: 220px; }
+  .exec-section { padding: 14px 14px; }
+  .exec-list li { font-size: 12px; }
+}
+@media (max-width: 400px) {
+  .page-header h1 { font-size: 22px; letter-spacing: 2px; }
 }
 
 </style>
@@ -799,9 +805,9 @@ var lightScales = {
 var legendLight = { position:'top', labels:{color:'#444',font:{size:10},boxWidth:10,padding:12} };
 
 var pillLabel = {
-  display:true, color:'#000', font:{size:10,weight:'700',family:'Montserrat'},
+  display:true, color:'#000', font:{size:(window.innerWidth<1024?7:10),weight:'700',family:'Montserrat'},
   backgroundColor:'rgba(255,255,255,0.92)', borderRadius:3,
-  padding:{top:2,bottom:2,left:5,right:5}, borderWidth:1, borderColor:'rgba(0,0,0,0.08)'
+  padding:(window.innerWidth<1024)?{top:1,bottom:1,left:2,right:2}:{top:2,bottom:2,left:5,right:5}, borderWidth:1, borderColor:'rgba(0,0,0,0.08)'
 };
 
 var MONTHS = ['Dec 2025','Jan 2026','Feb 2026'];
@@ -838,11 +844,11 @@ new Chart(document.getElementById('chartRevenue'), {
     labels: MONTHS,
     datasets: [
       { label: 'Memberships', data: [29597,31499,25690], backgroundColor:C_SKY, borderRadius:2,
-        datalabels:{display:true,align:'end',anchor:'end',offset:1,clamp:true,color:'#000',font:{size:9,weight:'700',family:'Montserrat'},backgroundColor:'rgba(255,255,255,0.92)',borderRadius:3,padding:{top:2,bottom:2,left:4,right:4},borderWidth:1,borderColor:'rgba(0,0,0,0.08)',formatter:function(v){return '$'+(v/1000).toFixed(1)+'k';}}},
+        datalabels:{display:true,align:'end',anchor:'end',offset:1,clamp:true,color:'#000',font:{size:(window.innerWidth<1024?7:9),weight:'700',family:'Montserrat'},backgroundColor:'rgba(255,255,255,0.92)',borderRadius:3,padding:{top:2,bottom:2,left:4,right:4},borderWidth:1,borderColor:'rgba(0,0,0,0.08)',formatter:function(v){return '$'+(v/1000).toFixed(1)+'k';}}},
       { label: 'Packages', data: [2162,2686,2109], backgroundColor:'#ddd', borderRadius:2,
-        datalabels:{display:true,align:'end',anchor:'end',offset:1,clamp:true,color:'#000',font:{size:9,weight:'700',family:'Montserrat'},backgroundColor:'rgba(255,255,255,0.92)',borderRadius:3,padding:{top:2,bottom:2,left:4,right:4},borderWidth:1,borderColor:'rgba(0,0,0,0.08)',formatter:function(v){return '$'+(v/1000).toFixed(1)+'k';}}},
+        datalabels:{display:true,align:'end',anchor:'end',offset:1,clamp:true,color:'#000',font:{size:(window.innerWidth<1024?7:9),weight:'700',family:'Montserrat'},backgroundColor:'rgba(255,255,255,0.92)',borderRadius:3,padding:{top:2,bottom:2,left:4,right:4},borderWidth:1,borderColor:'rgba(0,0,0,0.08)',formatter:function(v){return '$'+(v/1000).toFixed(1)+'k';}}},
       { label: 'Intro Offers', data: [1162,2304,2156], backgroundColor:C_BLACK, borderRadius:2,
-        datalabels:{display:true,align:'end',anchor:'end',offset:1,clamp:true,color:'#fff',font:{size:9,weight:'700',family:'Montserrat'},backgroundColor:'rgba(0,0,0,0.75)',borderRadius:3,padding:{top:2,bottom:2,left:4,right:4},borderWidth:0,formatter:function(v){return '$'+(v/1000).toFixed(1)+'k';}}}
+        datalabels:{display:true,align:'end',anchor:'end',offset:1,clamp:true,color:'#fff',font:{size:(window.innerWidth<1024?7:9),weight:'700',family:'Montserrat'},backgroundColor:'rgba(0,0,0,0.75)',borderRadius:3,padding:{top:2,bottom:2,left:4,right:4},borderWidth:0,formatter:function(v){return '$'+(v/1000).toFixed(1)+'k';}}}
     ]
   },
   options: {
@@ -886,9 +892,9 @@ new Chart(document.getElementById('chartSalesCancel'), {
     labels: MONTHS,
     datasets: [
       { label: 'Memberships Sold', data: [7,25,24], backgroundColor:C_SKY, borderRadius:2,
-        datalabels:{display:true,align:'end',anchor:'end',offset:1,clamp:true,color:'#000',font:{size:9,weight:'700',family:'Montserrat'},backgroundColor:'rgba(255,255,255,0.92)',borderRadius:3,padding:{top:2,bottom:2,left:4,right:4},borderWidth:1,borderColor:'rgba(0,0,0,0.08)'}},
+        datalabels:{display:true,align:'end',anchor:'end',offset:1,clamp:true,color:'#000',font:{size:(window.innerWidth<1024?7:9),weight:'700',family:'Montserrat'},backgroundColor:'rgba(255,255,255,0.92)',borderRadius:3,padding:{top:2,bottom:2,left:4,right:4},borderWidth:1,borderColor:'rgba(0,0,0,0.08)'}},
       { label: 'Cancelled', data: [14,12,17], backgroundColor:C_BLACK, borderRadius:2,
-        datalabels:{display:true,align:'end',anchor:'end',offset:1,clamp:true,color:'#fff',font:{size:9,weight:'700',family:'Montserrat'},backgroundColor:'rgba(0,0,0,0.75)',borderRadius:3,padding:{top:2,bottom:2,left:4,right:4},borderWidth:0}}
+        datalabels:{display:true,align:'end',anchor:'end',offset:1,clamp:true,color:'#fff',font:{size:(window.innerWidth<1024?7:9),weight:'700',family:'Montserrat'},backgroundColor:'rgba(0,0,0,0.75)',borderRadius:3,padding:{top:2,bottom:2,left:4,right:4},borderWidth:0}}
     ]
   },
   options: {
