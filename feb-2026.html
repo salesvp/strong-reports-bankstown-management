@@ -193,6 +193,34 @@ body.edit-mode .edit-trigger { display: flex; }
 body.edit-mode .section-card { outline: 1px dashed rgba(135,206,235,0.15); }
 .edit-banner { display: none; position: fixed; bottom: 24px; left: 50%; transform: translateX(-50%); background: var(--sky); color: var(--black); font-size: 10px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; padding: 8px 20px; border-radius: 20px; z-index: 700; white-space: nowrap; }
 body.edit-mode .edit-banner { display: block; }
+
+/* MOBILE RESPONSIVE */
+@media (max-width: 768px) {
+  .page-header { padding: 28px 20px 24px; }
+  .page-header h1 { font-size: 26px; letter-spacing: 3px; }
+  .content-area { padding: 20px 16px 60px; }
+  .metric-strip { grid-template-columns: repeat(2, 1fr); gap: 8px; }
+  .metric-strip.three { grid-template-columns: 1fr; }
+  .m-card { padding: 14px 12px; }
+  .m-val { font-size: 22px; }
+  .section-card-body { padding: 14px 14px; }
+  .section-card-header { padding: 12px 14px; }
+  .section-title { font-size: 16px; letter-spacing: 2px; }
+  .data-table { display: block; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+  .data-table th, .data-table td { font-size: 11px; padding: 7px 8px; }
+  .chart-wrap { margin: 0 -14px; }
+  .chart-wrap canvas { max-height: 250px; }
+  .tb-pills { display: none; }
+  .secbar { display: none; }
+  #page-wrap { padding-top: 52px; }
+  .insight-text { font-size: 12px; }
+  .insight-text p { margin-bottom: 10px; }
+}
+@media (max-width: 400px) {
+  .metric-strip { grid-template-columns: 1fr; }
+  .page-header h1 { font-size: 22px; letter-spacing: 2px; }
+}
+
 </style>
 </head>
 <body>

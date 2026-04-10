@@ -497,7 +497,16 @@
                 font-size: 20px;
             }
         }
-    </style>
+    
+/* MOBILE RESPONSIVE ADDITIONS */
+@media screen and (max-width: 768px) {
+  table { display: block; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+  .metrics { grid-template-columns: 1fr !important; }
+  .chart-container { height: 250px; }
+  .chart-container canvas { max-height: 250px; }
+}
+
+</style>
 </head>
 <body>
     <!-- Header -->
