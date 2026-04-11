@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Debug Font Sizes</title>
+<style>
+body { font-family: sans-serif; padding: 20px; font-size: 13px; }
+.debug-box { background: #eee; padding: 10px; margin: 10px 0; border: 1px solid #ccc; }
+#info { font-weight: bold; margin-bottom: 20px; }
+.test-13 { font-size: 13px; }
+.test-12 { font-size: 12px; }
+.test-takeaway { font-size: 13px; line-height: 1.65; padding: 5px 0 5px 16px; }
+@media (max-width: 1024px) {
+  .test-takeaway { font-size: 12px; }
+}
+</style>
+</head>
+<body>
+<div id="info"></div>
+<div class="debug-box">
+  <strong>13px test:</strong>
+  <p class="test-13">Booking utilisation declined from 48.97% to 44.95% across Q1 — materially below the 75–85% target range</p>
+</div>
+<div class="debug-box">
+  <strong>12px test:</strong>
+  <p class="test-12">Booking utilisation declined from 48.97% to 44.95% across Q1 — materially below the 75–85% target range</p>
+</div>
+<div class="debug-box">
+  <strong>Takeaway (13px, 12px under 1024):</strong>
+  <p class="test-takeaway">Booking utilisation declined from 48.97% to 44.95% across Q1 — materially below the 75–85% target range</p>
+</div>
+<script>
+var info = document.getElementById('info');
+var w = window.innerWidth;
+var h = window.innerHeight;
+var dpr = window.devicePixelRatio;
+var orient = screen.orientation ? screen.orientation.type : (w > h ? 'landscape' : 'portrait');
+info.innerHTML = 'Viewport: ' + w + 'x' + h + '<br>DPR: ' + dpr + '<br>Orientation: ' + orient;
+
+var takeaway = document.querySelector('.test-takeaway');
+var computed = window.getComputedStyle(takeaway);
+info.innerHTML += '<br>Takeaway computed font-size: ' + computed.fontSize;
+info.innerHTML += '<br>Media max-1024 applies: ' + (w <= 1024 ? 'YES' : 'NO');
+</script>
+</body>
+</html>
